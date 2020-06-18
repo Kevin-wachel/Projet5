@@ -2,7 +2,14 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "style.scss"
+        "style.scss",
+        "Base/_base.scss",
+        "Base/_police.scss",
+        "Layouts/_footer.scss",
+        "Layouts/_header.scss",
+        "Pages/_index.scss",
+        "Utils/_mixins.scss",
+        "Utils/_variables.scss"
     ],
     "names": [],
     "file": "style.css"
