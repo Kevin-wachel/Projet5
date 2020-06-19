@@ -1,1 +1,50 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+/* Regles generales */
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #f7f1e3;
+}
+
+/* Partie Footer */
+footer {
+  height: 100px;
+  width: 100%;
+  background-color: #706fd3;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 1.1rem;
+}
+
+/* Partie Header */
+header {
+  height: 100px;
+  width: 100%;
+  background-color: #706fd3;
+}
+
+header h1 {
+  margin: 0px;
+  padding-top: 25px;
+  padding-left: 20px;
+}
+
+header a {
+  text-decoration: none;
+}
+
+/* Partie main de la page d'acceuil */
+#produit li {
+  width: 350px;
+  height: 500px;
+  border: 1px solid black;
+  margin: 20px auto;
+  -webkit-box-shadow: 0 0 5px;
+          box-shadow: 0 0 5px;
+  background-color: #b8e994;
+}
+
+#produit img {
+  width: 250px;
+  height: auto;
+}
+/*# sourceMappingURL=style.css.map */

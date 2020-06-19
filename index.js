@@ -9,11 +9,13 @@ request.onreadystatechange = function() {
         console.log(response);
         response.forEach(function (response) {                          //Du javascript vers le HTML, en boucle
             let elt = document.getElementById('produit');               //Sélection de l'id produit
-            elt.innerHTML += '<li> Article </li>';                      //Création du li
-            elt.innerHTML += '<p>' + response.name + '</p>';            //Création du nom de l'article
-            elt.innerHTML += '<img src="' + response.imageUrl + '"/>';  //Création de l'image
-            elt.innerHTML += '<p>' + response.description + '<p>';      //Création de la description
-            elt.innerHTML += '<p>' + response.price + '</p>';           //Création du prix
+            function items() {
+                elt.innerHTML += '<h3>' + response.name + '</h3>';          //Création du nom de l'article
+                elt.innerHTML += '<img src="' + response.imageUrl + '"/>';  //Création de l'image
+                elt.innerHTML += '<p>' + response.description + '<p>';      //Création de la description
+                elt.innerHTML += '<p>' + response.price + ' €</p>';         //Création du prix
+            };
+            elt.innerHTML += '<li>' + items + '</li>';                             //Création du li
         });
     };
 };
