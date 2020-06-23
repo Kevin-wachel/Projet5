@@ -2,7 +2,7 @@
 body {
   height: 100%;
   margin: 0;
-  background-color: #f7f1e3;
+  background-color: #ecf0f1;
 }
 
 /* Partie Footer */
@@ -32,6 +32,11 @@ header a {
   text-decoration: none;
 }
 
+.panier i {
+  position: absolute;
+  right: 20px;
+}
+
 /* Partie main de la page d'acceuil */
 #produit li {
   width: 350px;
@@ -40,7 +45,7 @@ header a {
   margin: 20px auto;
   -webkit-box-shadow: 0 0 5px;
           box-shadow: 0 0 5px;
-  background-color: #b8e994;
+  background-color: #bdc3c7;
 }
 
 #produit img {
