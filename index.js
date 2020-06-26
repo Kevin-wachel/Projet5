@@ -12,7 +12,7 @@ request.onreadystatechange = function() {
             let response = JSON.parse(this.responseText);                   //Récupération des données en JSON.parse
             console.log(response);
 
-            function maFonction() {                                         // Fonction pour intégrer les élèments dans le Html
+            function oursEnPeluche() {                                      // Fonction pour intégrer les élèments dans le Html
                 for(let i = 0; i < response.length; i++) {                  // La boucle i
                     const myLi = document.createElement('li');              // Création des élèments
                     const myH3 = document.createElement('h3');
@@ -25,7 +25,7 @@ request.onreadystatechange = function() {
                     myDescription.textContent = response[i].description;
                     myPrice.textContent = response[i].price/100 + " €";
                     myLien.textContent = "Lien vers le produit";
-                    myLien.setAttribute("href", "produit.html");
+                    myLien.setAttribute("href", "produit.html#" + response[i]._id);
 
                     myLi.appendChild(myH3);                                 // Intégration des élèments dans la balise li
                     myLi.appendChild(myImg);
@@ -36,7 +36,7 @@ request.onreadystatechange = function() {
                     ul.appendChild(myLi);                                   // Intégration des élèments dans la balise ul
                 };
             };
-            maFonction();                                                   // Appel de la fonction
+            oursEnPeluche();                                                // Appel de la fonction
             
         };
     };
