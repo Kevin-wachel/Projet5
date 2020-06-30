@@ -27,7 +27,7 @@ request.onreadystatechange = function() {
                 const myListe = document.querySelector('select');
                 const myPrice = document.querySelector('.price');
                 const mySubmit = document.querySelector('.btn');
-
+                
                 // Intégration des données
                 myH3.textContent = response.name;
                 myImg.setAttribute("src", response.imageUrl);
@@ -36,21 +36,36 @@ request.onreadystatechange = function() {
                 for (let i = 0; i < colors.length; i++) {
                     const myOption = document.createElement('option');
                     myOption.textContent = colors[i];
-                    myListe.appendChild(myOption);
+                    myListe.appendChild(myOption);                
                 };
                 myPrice.textContent = response.price/100 + " €";
                 
-               /* mySubmit.addEventListener('click', function (event) {
-                    
-                    const objJson = { // Au moment du clique sur le bouton : création d'une constante "order"
-                      _id: id.textContent, // qui contient l'id du produit
-                      color_ours: colors.value, // la valeur de la lentille selectionnée
-                      qte: qte_ours.value // la quantité voulue
+                // Récupération des données 
+                const myId = response._id;
+                const myOption = document.querySelector('.color_ours').value;
+                const myQte = document.querySelector('.qte_ours').value;
+
+
+                // Stockage des informations dans le localStorage
+                /*mySubmit.addEventListener('click', function (event) {
+                    let objJson = {
+                        id: myId,
+                        colors: myOption,
+                        qte: myQte
                     };
-                    
-                    const stringObjJson = JSON.stringify(objJson); // On transforme cet objet en chaine de caractère
-                    localStorage.setItem("obj", stringObjJson);
+                    let objLinea = JSON.stringify(objJson);
+                    localStorage.setItem("obj", objLinea);
+                    console.log(objLinea);
                 });*/
+                let objJson = {
+                    id: myId,
+                    colors: myOption,
+                    qte: myQte
+                };
+                let objLinea = JSON.stringify(objJson);
+                localStorage.setItem("obj", objLinea);
+                console.log(objLinea);
+
             };         
             ours();
         };
