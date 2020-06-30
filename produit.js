@@ -7,7 +7,7 @@ const idHash = hash.replace('#', '/');
 const nomUrl = url + idHash;
 
 // Balise div séléctionner 
-const div = document.querySelector('div');
+const section = document.querySelector('section');
 
 // Requete + fonction
 let request = new XMLHttpRequest();
@@ -19,19 +19,16 @@ request.onreadystatechange = function() {
             console.log(response);
 
             function ours() {
-                // Création des balises
-                const myDiv = document.createElement('div');
-                const myH3 = document.createElement('h3');
-                const myImg = document.createElement('img');
-                const myDescription = document.createElement('p');
-                const myForm = document.createElement('form');
-                const myListe = document.createElement('select');
-                const myPrice = document.createElement('p');
-                const myLabel = document.createElement('label');
-                const myImput = document.createElement('input');
-                const myButton = document.createElement('button');
 
-                // 
+                // Sélection des éléments
+                const myH3 = document.querySelector('h3');
+                const myImg = document.querySelector('img');
+                const myDescription = document.querySelector('p');
+                const myListe = document.querySelector('select');
+                const myPrice = document.querySelector('.price');
+                const mySubmit = document.querySelector('.btn');
+
+                // Intégration des données
                 myH3.textContent = response.name;
                 myImg.setAttribute("src", response.imageUrl);
                 myDescription.textContent = response.description;
@@ -42,26 +39,18 @@ request.onreadystatechange = function() {
                     myListe.appendChild(myOption);
                 };
                 myPrice.textContent = response.price/100 + " €";
-                myLabel.textContent = "Quantité";
                 
-                //Création de la fonction pour envoyé au panier le produit
-                /*myButton.textContent = "Ajouter au panier";
-                myButton.setAttribute("href", "panier.html");
-                myForm.appendChild(myButton);
-                */
-
-                // Insertion des résultats
-                myDiv.appendChild(myH3);                                 
-                myDiv.appendChild(myImg);
-                myDiv.appendChild(myDescription);
-                
-                myForm.appendChild(myListe);
-                myForm.appendChild(myPrice);
-                myLabel.appendChild(myImput);
-                myForm.appendChild(myLabel);
-                myDiv.appendChild(myForm);
-
-                div.appendChild(myDiv);
+               /* mySubmit.addEventListener('click', function (event) {
+                    
+                    const objJson = { // Au moment du clique sur le bouton : création d'une constante "order"
+                      _id: id.textContent, // qui contient l'id du produit
+                      color_ours: colors.value, // la valeur de la lentille selectionnée
+                      qte: qte_ours.value // la quantité voulue
+                    };
+                    
+                    const stringObjJson = JSON.stringify(objJson); // On transforme cet objet en chaine de caractère
+                    localStorage.setItem("obj", stringObjJson);
+                });*/
             };         
             ours();
         };
