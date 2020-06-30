@@ -9,7 +9,7 @@ body {
 footer {
   height: 100px;
   width: 100%;
-  background-color: #706fd3;
+  background-color: #c8e6c9;
   text-align: center;
   padding-top: 5px;
   font-size: 1.1rem;
@@ -19,7 +19,7 @@ footer {
 header {
   height: 100px;
   width: 100%;
-  background-color: #706fd3;
+  background-color: #c8e6c9;
 }
 
 header h1 {
@@ -45,11 +45,28 @@ header a {
   margin: 20px auto;
   -webkit-box-shadow: 0 0 5px;
           box-shadow: 0 0 5px;
-  background-color: #bdc3c7;
+  background-color: #efebe9;
+  list-style-type: none;
+  text-align: center;
 }
 
 #produit img {
   width: 250px;
+  height: auto;
+}
+
+/* Page du produit */
+.teddy {
+  margin: 40px 35px;
+  padding: 25px 20px;
+  border: 1px solid black;
+  -webkit-box-shadow: 0 0 3px;
+          box-shadow: 0 0 3px;
+  background-color: #efebe9;
+}
+
+.img_ours {
+  width: 400px;
   height: auto;
 }
 /*# sourceMappingURL=style.css.map */
