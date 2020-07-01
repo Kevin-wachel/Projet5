@@ -20,26 +20,31 @@ footer {
   font-size: 1.1rem;
 }
 
+footer a {
+  color: #84817a;
+}
+
 /* Partie Header */
 header {
   height: 100px;
   width: 100%;
   background-color: #c8e6c9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 header h1 {
-  margin: 0px;
-  padding-top: 25px;
-  padding-left: 20px;
+  margin: auto;
+  color: #795548;
 }
 
 header a {
   text-decoration: none;
-}
-
-.panier i {
-  position: absolute;
-  right: 20px;
+  margin: auto;
+  color: #cd6133;
 }
 
 /* Partie main de la page d'acceuil */
@@ -108,6 +113,10 @@ th {
   background-color: #FFF;
   -webkit-box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
           box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
+}
+
+.form h2 {
+  padding-top: 20px;
 }
 
 .form h2::after {
