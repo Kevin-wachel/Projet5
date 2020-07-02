@@ -20,19 +20,22 @@ request.onreadystatechange = function() {
                     const myDescription = document.createElement('p');
                     const myPrice = document.createElement('p');
                     const myLien = document.createElement('a');
+                    const myButton = document.createElement('button');
                     myH3.textContent = response[i].name;
                     myImg.setAttribute("src", response[i].imageUrl);
                     myDescription.textContent = response[i].description;
                     myPrice.textContent = response[i].price/100 + " €";
                     myLien.textContent = "Lien vers le produit";
                     myLien.setAttribute("href", "produit.html#" + response[i]._id);
+                    myButton.classList.add("btn_lien");
 
                     myLi.appendChild(myH3);                                 // Intégration des élèments dans la balise li
                     myLi.appendChild(myImg);
                     myLi.appendChild(myDescription);
                     myLi.appendChild(myPrice);
-                    myLi.appendChild(myLien);
-                    
+                    myButton.appendChild(myLien);
+                    myLi.appendChild(myButton);
+
                     ul.appendChild(myLi);                                   // Intégration des élèments dans la balise ul
                 };
             };
