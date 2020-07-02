@@ -36,6 +36,7 @@ request.onreadystatechange = function() {
                 for (let i = 0; i < colors.length; i++) {
                     const myOption = document.createElement('option');
                     myOption.textContent = colors[i];
+                    myOption.setAttribute("value", colors[i]);
                     myListe.appendChild(myOption);                
                 };
                 myPrice.textContent = response.price/100 + " €";
@@ -44,28 +45,19 @@ request.onreadystatechange = function() {
                 const myId = response._id;
                 const myOption = document.querySelector('.color_ours').value;
                 const myQte = document.querySelector('.qte_ours').value;
-
+                const oursPrice = response.price/100 + " €";
 
                 // Stockage des informations dans le localStorage
-                /*mySubmit.addEventListener('click', function (event) {
+                mySubmit.addEventListener('click', function (event) {
                     let objJson = {
                         id: myId,
                         colors: myOption,
-                        qte: myQte
+                        qte: myQte,
+                        price: oursPrice
                     };
                     let objLinea = JSON.stringify(objJson);
                     localStorage.setItem("obj", objLinea);
-                    console.log(objLinea);
-                });*/
-                let objJson = {
-                    id: myId,
-                    colors: myOption,
-                    qte: myQte
-                };
-                let objLinea = JSON.stringify(objJson);
-                localStorage.setItem("obj", objLinea);
-                console.log(objLinea);
-
+                });
             };         
             ours();
         };
