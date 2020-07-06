@@ -48,8 +48,12 @@ header a {
 }
 
 /* Partie main de la page d'acceuil */
+#produit {
+  padding-left: 0px;
+}
+
 #produit li {
-  width: 350px;
+  width: 300px;
   height: 500px;
   border: 1px solid black;
   margin: 20px auto;
@@ -73,6 +77,20 @@ header a {
   color: #FFF;
 }
 
+@media (min-width: 700px) {
+  #produit li {
+    width: 400px;
+  }
+  #produit img {
+    width: 300px;
+    height: auto;
+  }
+  #produit .btn_lien {
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+}
+
 /* Page du produit */
 .teddy {
   margin: 40px 35px;
@@ -89,7 +107,7 @@ header a {
 }
 
 .img_ours {
-  width: 400px;
+  width: 200px;
   height: auto;
   display: block;
   margin: 15px auto;
@@ -111,6 +129,19 @@ header a {
   text-align: center;
 }
 
+@media (min-width: 700px) {
+  .img_ours {
+    width: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .teddy {
+    width: 700px;
+    margin: 20px auto;
+  }
+}
+
 /* Page panier */
 /* Partie tableau */
 table {
@@ -130,8 +161,7 @@ th {
 
 /* Partie formulaire */
 .form {
-  max-width: 850px;
-  width: 550px;
+  width: 300px;
   height: 550px;
   margin: 30px auto;
   -webkit-box-pack: center;
@@ -164,7 +194,7 @@ th {
 }
 
 .field {
-  width: 50%;
+  width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -189,6 +219,24 @@ th {
 .field:focus {
   background-color: #FFF;
   border: 2px solid rgba(30, 85, 250, 0.47);
+}
+
+@media (min-width: 700px) {
+  .form {
+    width: 550px;
+  }
+  .field {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form {
+    width: 650px;
+  }
+  .field {
+    width: 75%;
+  }
 }
 
 /* Bouton page d'accueil */
@@ -232,7 +280,7 @@ th {
 
 /* Bouton envoyer du formulaire */
 .btn {
-  width: 20%;
+  width: 40%;
   padding: 0.5rem 1rem;
   font-size: 1.1rem;
   background-color: #2ecc71;
@@ -246,5 +294,11 @@ th {
 
 .btn:hover {
   background-color: #27ae60;
+}
+
+@media (min-width: 700px) {
+  .btn {
+    width: 20%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

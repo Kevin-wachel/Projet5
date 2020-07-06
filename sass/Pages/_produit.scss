@@ -14,7 +14,7 @@
 }
 
 .img_ours {
-    width: 400px;
+    width: 200px;
     height: auto;
     display: block;
     margin: 15px auto;
@@ -33,4 +33,17 @@
     margin: 20px auto;
     width: 60px;
     text-align: center;
+}
+
+@media (min-width: 700px) {
+    .img_ours {
+        width: 400px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .teddy {
+        width: 700px;
+        margin: 20px auto;
+    }
 }
