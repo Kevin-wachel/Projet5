@@ -26,7 +26,7 @@ request.onreadystatechange = function() {
                 const myDescription = document.querySelector('p');
                 const myListe = document.querySelector('select');
                 const myPrice = document.querySelector('.price');
-                const mySubmit = document.querySelector('.btn');
+                const mySubmit = document.querySelector('.btn_ajouter');
                 
                 // Intégration des données
                 myH3.textContent = response.name;
@@ -41,19 +41,12 @@ request.onreadystatechange = function() {
                 };
                 myPrice.textContent = response.price/100 + " €";
                 
-                // Récupération des données 
-                const myId = response._id;
-                const myOption = document.querySelector('.color_ours').value;
-                const myQte = document.querySelector('.qte_ours').value;
-                const oursPrice = response.price/100 + " €";
-
                 // Stockage des informations dans le localStorage
                 mySubmit.addEventListener('click', function (event) {
                     let objJson = {
-                        id: myId,
-                        colors: myOption,
-                        qte: myQte,
-                        price: oursPrice
+                        id: response._id,
+                        colors: document.querySelector('.color_ours').value,
+                        qte: document.querySelector('.qte_ours').value
                     };
                     let objLinea = JSON.stringify(objJson);
                     localStorage.setItem("obj", objLinea);
