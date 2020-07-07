@@ -45,7 +45,9 @@ request.onreadystatechange = function() {
                 mySubmit.addEventListener('click', function (event) {
                     let objJson = {
                         id: response._id,
+                        name: response.name,
                         colors: document.querySelector('.color_ours').value,
+                        price: response.price,
                         qte: document.querySelector('.qte_ours').value
                     };
                     let objLinea = JSON.stringify(objJson);

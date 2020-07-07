@@ -1,20 +1,39 @@
 // Récupéré les données du localStorage
 let objLinea = localStorage.getItem("obj");
 let objJson = JSON.parse(objLinea);
-//alert(objJson.id);
 
 // Appel de l'Api
 const url = "http://localhost:3000/api/teddies";
 
-// Requete 
-let request = new XMLHttpRequest();
-request.onreadystatechange = function() {
-    if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-    let response = JSON.parse(this.responseText);
-        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) { //Vérification si c'est bon
-            let response = JSON.parse(this.responseText);                   //Récupération des données en JSON.parse          
-        };
-    };
+// Séléction de la balise tbody
+const tbody = document.querySelector('.commande');
+
+// Séléction de la balise tfoot
+const tfoot = document.querySelector('tfoot');
+            
+// Fonction d'intégration des élèments dans le tableau de notre panier
+function commandeOursEnPeluche() {
+
+    const myTr = document.createElement('tr');
+    const myTd1 = document.createElement('td');
+    const myTd2 = document.createElement('td');
+    const myTd3 = document.createElement('td');
+    const myTd4 = document.createElement('td');
+    const myTd5 = document.createElement('td');
+
+    myTd1.textContent = objJson.name;
+    myTd2.textContent = objJson.colors;
+    myTd3.textContent = objJson.price/100 + " €";
+    myTd4.textContent = objJson.qte;
+    myTd5.textContent = (objJson.price/100) * objJson.qte + " €";
+
+    myTr.appendChild(myTd1);
+    myTr.appendChild(myTd2);
+    myTr.appendChild(myTd3);
+    myTr.appendChild(myTd4);
+    myTr.appendChild(myTd5);
+
+    tbody.appendChild(myTr);
+
 };
-request.open("GET", url);
-request.send();
+commandeOursEnPeluche();
