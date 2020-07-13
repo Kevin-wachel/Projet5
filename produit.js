@@ -43,13 +43,13 @@ request.onreadystatechange = function() {
                 
                 // Stockage des informations dans le localStorage
                 mySubmit.addEventListener('click', function (event) {
-                    let objJson = {
+                    let objJson = [{
                         id: response._id,
                         name: response.name,
                         colors: document.querySelector('.color_ours').value,
                         price: response.price,
                         qte: document.querySelector('.qte_ours').value
-                    };
+                    }];
                     let objLinea = JSON.stringify(objJson);
                     localStorage.setItem("obj", objLinea);
                 });
