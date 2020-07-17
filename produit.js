@@ -43,15 +43,24 @@ request.onreadystatechange = function() {
                 
                 // Stockage des informations dans le localStorage
                 mySubmit.addEventListener('click', function (event) {
-                    let objJson = [{
+                    let objJson = {
                         id: response._id,
                         name: response.name,
                         colors: document.querySelector('.color_ours').value,
                         price: response.price,
                         qte: document.querySelector('.qte_ours').value
-                    }];
-                    let objLinea = JSON.stringify(objJson);
-                    localStorage.setItem("obj", objLinea);
+                    };
+                    
+                    const newTeddy = localStorage.getItem("obj");
+                    if (newTeddy) {
+                        teddyArray = JSON.parse(newTeddy);
+                        teddyArray.push(objJson);
+                        localStorage.setItem("obj", JSON.stringify(teddyArray));
+                    } else {
+                        teddyArray = [];
+                        teddyArray.push(objJson);
+                        localStorage.setItem("obj", JSON.stringify(teddyArray));
+                    }
                 });
             };         
             ours();
