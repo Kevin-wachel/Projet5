@@ -10,7 +10,7 @@ function commandeOursEnPeluche() {
     let objLinea = localStorage.getItem("obj");
     let commande = JSON.parse(objLinea);
     
-    for(let i = 0; i < localStorage.length; i++) {
+    for(let i = 0; i < commande.length; i++) {
 
         const myTr = document.createElement('tr');
         const myTd1 = document.createElement('td');
