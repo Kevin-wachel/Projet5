@@ -1,20 +1,40 @@
 /* Page panier */
 
+.votrecom {
+    text-align: center;
+}
+
 /* Partie tableau */
 
 table {
     border-collapse: collapse;
     width: 100%;
+    border: solid 1px black;
 }
 
 th, td {
     text-align: left;
-    padding: 8px;
+    padding: 5px;
+    font-size: 80%;
 }
 
 th {
     background-color: #4CAF50;
     color: white;
+}
+
+@media (min-width: 700px) {
+    th, td {
+        padding: 8px;
+        font-size: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    table {
+        width: 85%;
+        margin: auto;
+    }
 }
 
 /* Partie formulaire */
