@@ -26,7 +26,8 @@ function commandeOursEnPeluche() {
         myTd3.textContent = commande[i].price/100 + " €";
         myTd4.textContent = commande[i].qte;
         myTd5.textContent = (commande[i].price/100) * commande[i].qte + " €";
-        myDeleteButton.textContent = "Supprimer";
+        myDeleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        myDeleteButton.classList.add('btn_supp');
 
         myTr.appendChild(myTd1);
         myTr.appendChild(myTd2);

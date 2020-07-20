@@ -298,6 +298,56 @@ th {
   background-color: #27ae60;
 }
 
+/* Bouton supprimer un article */
+.btn_supp {
+  width: 70%;
+  padding: 11px;
+  font-size: 1rem;
+  margin-left: 10px;
+  background-color: #e55039;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #FFF;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.btn_supp:hover {
+  background-color: #eb2f06;
+}
+
+@media (min-width: 700px) {
+  .btn_supp {
+    width: 40%;
+    padding: 8px;
+  }
+}
+
+/* Bouton supprimer tout les articles */
+.btn_alldelete {
+  width: 100%;
+  padding: 4px;
+  background-color: #e55039;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #FFF;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.btn_alldelete:hover {
+  background-color: #eb2f06;
+}
+
+@media (min-width: 700px) {
+  .btn_alldelete {
+    width: 75%;
+    padding: 8px;
+  }
+}
+
 /* Bouton envoyer du formulaire */
 .btn {
   width: 40%;
