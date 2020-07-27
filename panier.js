@@ -3,7 +3,10 @@ const tbody = document.querySelector('.commande');
 
 // Séléction de la balise tfoot
 const tfoot = document.querySelector('tfoot');
-            
+
+//Déclaration total somme
+let total = 0;
+
 // Fonction d'intégration des élèments dans le tableau de notre panier
 function commandeOursEnPeluche() {
     // Récupéré les données du localStorage
@@ -41,23 +44,34 @@ function commandeOursEnPeluche() {
         // Supprime un article
         /*myDeleteButton.addEventListener('click', function (event) {
             function deleteItem() {
- 
-                window.location.reload()
+                localStorage.removeItem(commande[i]._id);
+                window.location.reload();
             };
             deleteItem();
-        });       */
-        myDeleteButton.setAttribute("onclick", "deleteItem()")
+        });       
+        myDeleteButton.setAttribute("onclick", "deleteItem()")*/
 
         // Supprime tout les articles
         myDeleteAllButton.addEventListener('click', function (event) {
             function deleteAllItem() {
-                localStorage.removeItem("obj"); 
+                localStorage.removeItem("obj");             
                 window.location.reload()
             };
             deleteAllItem();
         });       
         myDeleteAllButton.setAttribute("onclick", "deleteAllItem()")
 
+        // Total de la commande
+        function totalCommande() {           
+            // Récupération du prix des articles
+            let value = (commande[i].price/100) * commande[i].qte;
+            // Addition des articles
+            total = total + value;
+            // Ajout du prix total des articles dans le formulaire d'achat
+            let totalDeLaCommande = document.querySelector('.total_commande');
+            totalDeLaCommande.textContent = total + " €";               
+        };      
+        totalCommande();
 
     };
 };
