@@ -22,8 +22,7 @@ function commandeOursEnPeluche() {
         const myTd4 = document.createElement('td');
         const myTd5 = document.createElement('td');
         const myDeleteButton = document.createElement('button');
-        const myDeleteAllButton = document.querySelector('.btn_alldelete');
-
+        
         myTd1.textContent = commande[i].name;
         myTd2.textContent = commande[i].colors;
         myTd3.textContent = commande[i].price/100 + " €";
@@ -41,26 +40,6 @@ function commandeOursEnPeluche() {
 
         tbody.appendChild(myTr);
 
-        // Supprime un article
-        /*myDeleteButton.addEventListener('click', function (event) {
-            function deleteItem() {
-                localStorage.removeItem(commande[i]._id);
-                window.location.reload();
-            };
-            deleteItem();
-        });       
-        myDeleteButton.setAttribute("onclick", "deleteItem()")*/
-
-        // Supprime tout les articles
-        myDeleteAllButton.addEventListener('click', function (event) {
-            function deleteAllItem() {
-                localStorage.removeItem("obj");             
-                window.location.reload()
-            };
-            deleteAllItem();
-        });       
-        myDeleteAllButton.setAttribute("onclick", "deleteAllItem()")
-
         // Total de la commande
         function totalCommande() {           
             // Récupération du prix des articles
@@ -73,6 +52,27 @@ function commandeOursEnPeluche() {
         };      
         totalCommande();
 
+        // Supprime un article
+        /*myDeleteButton.addEventListener('click', function (event) {
+        function deleteItem(commande, value) {
+            commande.splice(commande.indexOf(value), 1)
+            window.location.reload();
+        };
+        deleteItem(commande, value);
+        });       
+        myDeleteButton.setAttribute("onclick", "deleteItem()")*/
     };
+
+    // Supprime tout les articles
+    const myDeleteAllButton = document.querySelector('.btn_alldelete');
+    
+    myDeleteAllButton.addEventListener('click', function (event) {
+        function deleteAllItem() {
+            localStorage.removeItem("obj");             
+            window.location.reload()
+        };
+        deleteAllItem();
+    });       
+    myDeleteAllButton.setAttribute("onclick", "deleteAllItem()")
 };
 commandeOursEnPeluche();
