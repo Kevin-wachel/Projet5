@@ -60,7 +60,7 @@ request.onreadystatechange = function() {
                         teddyArray = [];
                         teddyArray.push(objJson);
                         localStorage.setItem("obj", JSON.stringify(teddyArray));
-                    }
+                    };
                 });
             };         
             ours();

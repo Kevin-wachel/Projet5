@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/6750e32b61.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  
+    <!-- En tête du site -->
     <header>
         <a href="index.html">
             <h1>Orinoco</h1>
@@ -17,9 +17,9 @@
             <i class="fas fa-shopping-cart">Panier</i>
         </a>
     </header>
-
+    <!-- Corps de la page -->
     <main>
-
+        
         <section>
             <h2 class="votrecom">Votre commande : </h2>
             <table>
@@ -50,17 +50,17 @@
         <section class="form">
             <h2>Formulaire</h2>
             <form method="POST" action="">
-                <label>Prénom : <input class="field" type="text" placeholder="Votre prénom" required></label>
-                <label>Nom : <input class="field" type="text" placeholder="Votre nom" required></label>
-                <label>Adresse : <input class="field" type="text" placeholder="Votre adresse" required></label>
-                <label>Ville : <input class="field" type="text" placeholder="Votre ville" required></label>
-                <label>Adresse email : <input class="field" type="email" placeholder="Votre adresse email" required></label>
+                <label>Prénom : <input id="firstName"class="field" type="text" placeholder="Votre prénom" required></label>
+                <label>Nom : <input id="lastName" class="field" type="text" placeholder="Votre nom" required></label>
+                <label>Adresse : <input id="address" class="field" type="text" placeholder="Votre adresse" required></label>
+                <label>Ville : <input id="city" class="field" type="text" placeholder="Votre ville" required></label>
+                <label>Adresse email : <input id="email" class="field" type="email" placeholder="Votre adresse email" required></label>
                 <button class="btn" type="submit">Envoyer</button>
               </form>
         </section>
 
     </main>
-
+    <!-- Pied du site -->
     <footer>
 
         <p>Orinoco, la référence de la vente d'ours en peluche</p>
