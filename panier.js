@@ -58,15 +58,7 @@ function commandeOursEnPeluche() {
         /*myDeleteButton.addEventListener('click', function (event) {
             function deleteItem() {
                 const deleteTeddy = localStorage.getItem("obj");
-                if (deleteTeddy) {
-                    teddyArray = JSON.parse(deleteTeddy);
-                    teddyArray.push(objJson);
-                    localStorage.removeItem("obj", JSON.stringify(teddyArray));
-                } else {
-                    teddyArray = [];
-                    teddyArray.push(objJson);
-                    localStorage.removeItem("obj", JSON.stringify(teddyArray));
-                };
+                
                 window.location.reload();
             };
             deleteItem();
@@ -91,33 +83,31 @@ commandeOursEnPeluche();
 // Partie envoie des données 
 
 const myButtonSubmit = document.querySelector('.btn');
-const firstName = document.querySelector('#firstName');
-const lastName = document.querySelector('#lastName');
-const address = document.querySelector('#address');
-const city = document.querySelector('#city');
-const email = document.querySelector('#email');
-
 
 myButtonSubmit.addEventListener('click', function (event) {
-
-    const contact = {
-        firstName: firstName.value,
-        lastName: lastName.value,
-        address: address.value,
-        city: city.value,
-        email: email.value
+    // Récupération des données saisie par l'utilisateur
+    let contact = {
+        firstName: document.querySelector('#firstName').value,
+        lastName: document.querySelector('#lastName').value,
+        address: document.querySelector('#address').value,
+        city: document.querySelector('#city').value,
+        email: document.querySelector('#email').value
     };
-
-    const products = [];
+    console.log(contact);
+    // Récupération de la commande
+    let products = [];
     for (let i = 0; i < commande.length; i++) {
         products.push(commande[i]._id)
     };
-
-    const data = { contact, products };
+    console.log(products);
+    // Ajout des données de contact et produit dans data
+    let data = { contact, products };
+    // Envoi des données vers l'API
     let request = new XMLHttpRequest();
-    request.open("POST", data);
+    let urlPost =  "http://localhost:3000/api/teddies/order";
+    request.open("POST", urlPost);
     request.setRequestHeader("Content-Type", "application/json");
-    request.send(JSON.stringify(jsonBody));
+    request.send(JSON.stringify(data));
     window.location.href = "confirm.html";
 });
 
