@@ -84,7 +84,7 @@ commandeOursEnPeluche();
 
 const myButtonSubmit = document.querySelector('.btn');
 
-myButtonSubmit.addEventListener('click', function (event) {
+//myButtonSubmit.addEventListener('click', function (event) {
     // Récupération des données saisie par l'utilisateur
     let contact = {
         firstName: document.querySelector('#firstName').value,
@@ -93,21 +93,19 @@ myButtonSubmit.addEventListener('click', function (event) {
         city: document.querySelector('#city').value,
         email: document.querySelector('#email').value
     };
-    console.log(contact);
     // Récupération de la commande
     let products = [];
     for (let i = 0; i < commande.length; i++) {
-        products.push(commande[i]._id)
+        products.push(commande[i].id)
     };
-    console.log(products);
     // Ajout des données de contact et produit dans data
     let data = { contact, products };
+    console.log(data);
     // Envoi des données vers l'API
     let request = new XMLHttpRequest();
     let urlPost =  "http://localhost:3000/api/teddies/order";
     request.open("POST", urlPost);
     request.setRequestHeader("Content-Type", "application/json");
     request.send(JSON.stringify(data));
-    window.location.href = "confirm.html";
-});
+//});
 
