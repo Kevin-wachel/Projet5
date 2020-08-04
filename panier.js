@@ -57,8 +57,7 @@ function commandeOursEnPeluche() {
         // Supprime un article
         /*myDeleteButton.addEventListener('click', function (event) {
             function deleteItem() {
-                const deleteTeddy = localStorage.getItem("obj");
-                
+                localStorage.removeItem(commande.id);              
                 window.location.reload();
             };
             deleteItem();
@@ -84,7 +83,7 @@ commandeOursEnPeluche();
 
 const myButtonSubmit = document.querySelector('.btn');
 
-//myButtonSubmit.addEventListener('click', function (event) {
+myButtonSubmit.addEventListener('click', function (event) {
     // Récupération des données saisie par l'utilisateur
     let contact = {
         firstName: document.querySelector('#firstName').value,
@@ -93,19 +92,20 @@ const myButtonSubmit = document.querySelector('.btn');
         city: document.querySelector('#city').value,
         email: document.querySelector('#email').value
     };
+
     // Récupération de la commande
     let products = [];
     for (let i = 0; i < commande.length; i++) {
         products.push(commande[i].id)
     };
+
     // Ajout des données de contact et produit dans data
     let data = { contact, products };
-    console.log(data);
+
     // Envoi des données vers l'API
     let request = new XMLHttpRequest();
-    let urlPost =  "http://localhost:3000/api/teddies/order";
-    request.open("POST", urlPost);
+    request.open("POST", "http://localhost:3000/api/teddies/order");
     request.setRequestHeader("Content-Type", "application/json");
     request.send(JSON.stringify(data));
-//});
+});
 
