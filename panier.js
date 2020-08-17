@@ -83,29 +83,38 @@ commandeOursEnPeluche();
 
 const myButtonSubmit = document.querySelector('.btn');
 
-myButtonSubmit.addEventListener('click', function (event) {
-    // Récupération des données saisie par l'utilisateur
-    let contact = {
-        firstName: document.querySelector('#firstName').value,
-        lastName: document.querySelector('#lastName').value,
-        address: document.querySelector('#address').value,
-        city: document.querySelector('#city').value,
-        email: document.querySelector('#email').value
-    };
+// Récupération des données saisie par l'utilisateur
+let contact = {
+    firstName: document.querySelector('#firstName').value,
+    lastName: document.querySelector('#lastName').value,
+    address: document.querySelector('#address').value,
+    city: document.querySelector('#city').value,
+    email: document.querySelector('#email').value
+};
 
-    // Récupération de la commande
-    let products = [];
-    for (let i = 0; i < commande.length; i++) {
-        products.push(commande[i].id)
-    };
+// Récupération de la commande
+let products = [];
+for (let i = 0; i < commande.length; i++) {
+    products.push(commande[i].id)
+};
 
-    // Ajout des données de contact et produit dans data
-    let data = { contact, products };
+// Ajout des données de contact et produit dans data
+let data = { contact, products };
 
-    // Envoi des données vers l'API
-    let request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:3000/api/teddies/order");
-    request.setRequestHeader("Content-Type", "application/json");
-    request.send(JSON.stringify(data));
+// Création de la methode 
+let postData = async (method, url, data) => {
+    let response = await fetch(url, {
+        method,
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+    return await response.json();
+};
+
+myButtonSubmit.addEventListener('click', async (event) => {
+    // Envoie des données au serveur
+    let response = await postData('POST', "http://localhost:3000/api/teddies/order", data);
 });
 
