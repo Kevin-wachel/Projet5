@@ -82,14 +82,19 @@ commandeOursEnPeluche();
 // Partie envoie des données 
 
 const myButtonSubmit = document.querySelector('.btn');
+const firstName = document.querySelector('#firstName').value;
+const lastName = document.querySelector('#lastName').value;
+const address = document.querySelector('#address').value;
+const city = document.querySelector('#city').value;
+const email = document.querySelector('#email').value
 
 // Récupération des données saisie par l'utilisateur
 let contact = {
-    firstName: document.querySelector('#firstName').value,
-    lastName: document.querySelector('#lastName').value,
-    address: document.querySelector('#address').value,
-    city: document.querySelector('#city').value,
-    email: document.querySelector('#email').value
+    firstName: "a",
+    lastName: "b",
+    address: "c",
+    city: "d",
+    email: "kevwachel@gmail.com"
 };
 
 // Récupération de la commande
@@ -99,22 +104,31 @@ for (let i = 0; i < commande.length; i++) {
 };
 
 // Ajout des données de contact et produit dans data
-let data = { contact, products };
+let dataPanier = { contact, products };
+console.log(dataPanier);
 
 // Création de la methode 
-let postData = async (method, url, data) => {
-    let response = await fetch(url, {
-        method,
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    });
-    return await response.json();
-};
 
-myButtonSubmit.addEventListener('click', async (event) => {
-    // Envoie des données au serveur
-    let response = await postData('POST', "http://localhost:3000/api/teddies/order", data);
+const envoiePost = fetch("http://localhost:3000/api/teddies/order", {
+    method: "POST",
+    body: JSON.stringify(dataPanier),
+    headers: {
+        "Content-Type": "application/json"
+    }
+});
+
+// Envoie des données au serveur
+envoiePost.then ( async response => {
+    try {
+        console.log(response);
+        const body = await response.json();
+        console.log(body);
+    }catch(e) {
+        console.log(e);
+    }
+});
+
+myButtonSubmit.addEventListener('click', function (event) {
+    window.location.href = "confirm.html";
 });
 
