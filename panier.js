@@ -110,11 +110,12 @@ myButtonSubmit.addEventListener('click', function (event) {
             console.log(body);
             const myReponse = JSON.stringify(body);
             localStorage.setItem("commande", myReponse);
+            window.location.href = "confirm.html";
         }catch(e) {
             console.log(e);
         }
     });
     
-    window.location.href = "confirm.html";
+    
 });
 

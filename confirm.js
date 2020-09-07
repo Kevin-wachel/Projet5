@@ -11,3 +11,11 @@ const totalCommande = document.querySelector(".total_commande");
 nomClient.textContent = myReponse.contact.firstName;
 numCommande.textContent = "Numéro de commande : " + myReponse.orderId;
 totalCommande.textContent = "Total de la commande : " + myTotal + " €";
+
+// Bouton retour a l'acceuil
+const myButtonReturn = document.querySelector(".retour_acc");
+
+myButtonReturn.addEventListener('click', function (event) {
+    localStorage.clear();
+    window.location.href = "index.html";
+});
