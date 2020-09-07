@@ -50,19 +50,10 @@ function commandeOursEnPeluche() {
             total = total + value;
             // Ajout du prix total des articles dans le formulaire d'achat
             let totalDeLaCommande = document.querySelector('.total_commande');
-            totalDeLaCommande.textContent = total + " €";               
+            totalDeLaCommande.textContent = total + " €";     
+            const myTotal = localStorage.setItem("total", total);          
         };      
         totalCommande();
-        
-        // Supprime un article
-        /*myDeleteButton.addEventListener('click', function (event) {
-            function deleteItem() {
-                localStorage.removeItem(commande.id);              
-                window.location.reload();
-            };
-            deleteItem();
-        });       
-        myDeleteButton.setAttribute("onclick", "deleteItem()")*/
     };
     
     // Supprime tout les articles
@@ -82,53 +73,48 @@ commandeOursEnPeluche();
 // Partie envoie des données 
 
 const myButtonSubmit = document.querySelector('.btn');
-const firstName = document.querySelector('#firstName').value;
-const lastName = document.querySelector('#lastName').value;
-const address = document.querySelector('#address').value;
-const city = document.querySelector('#city').value;
-const email = document.querySelector('#email').value
-
-// Récupération des données saisie par l'utilisateur
-let contact = {
-    firstName: "a",
-    lastName: "b",
-    address: "c",
-    city: "d",
-    email: "kevwachel@gmail.com"
-};
-
-// Récupération de la commande
-let products = [];
-for (let i = 0; i < commande.length; i++) {
-    products.push(commande[i].id)
-};
-
-// Ajout des données de contact et produit dans data
-let dataPanier = { contact, products };
-console.log(dataPanier);
-
-// Création de la methode 
-
-const envoiePost = fetch("http://localhost:3000/api/teddies/order", {
-    method: "POST",
-    body: JSON.stringify(dataPanier),
-    headers: {
-        "Content-Type": "application/json"
-    }
-});
-
-// Envoie des données au serveur
-envoiePost.then ( async response => {
-    try {
-        console.log(response);
-        const body = await response.json();
-        console.log(body);
-    }catch(e) {
-        console.log(e);
-    }
-});
 
 myButtonSubmit.addEventListener('click', function (event) {
+    // Récupération des données saisie par l'utilisateur
+    let contact = {
+        firstName: document.querySelector('#firstName').value,
+        lastName: document.querySelector('#lastName').value,
+        address: document.querySelector('#address').value,
+        city: document.querySelector('#city').value,
+        email: document.querySelector('#email').value
+    };
+
+    // Récupération de la commande
+    let products = [];
+    for (let i = 0; i < commande.length; i++) {
+        products.push(commande[i].id)
+    };
+
+    // Ajout des données de contact et produit dans data
+    let dataPanier = { contact, products };
+
+    // Création de la methode 
+    const envoiePost = fetch("http://localhost:3000/api/teddies/order", {
+        method: "POST",
+        body: JSON.stringify(dataPanier),    
+        headers: {
+            "Content-Type": "application/json"
+        }       
+    });
+
+    // Envoie des données au serveur
+    envoiePost.then ( async response => {
+        try {
+            console.log(response);
+            const body = await response.json();
+            console.log(body);
+            const myReponse = JSON.stringify(body);
+            localStorage.setItem("commande", myReponse);
+        }catch(e) {
+            console.log(e);
+        }
+    });
+    
     window.location.href = "confirm.html";
 });
 
