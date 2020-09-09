@@ -75,6 +75,7 @@ commandeOursEnPeluche();
 const myButtonSubmit = document.querySelector('.btn');
 
 myButtonSubmit.addEventListener('click', function (event) {
+    event.preventDefault()
     // Récupération des données saisie par l'utilisateur
     let contact = {
         firstName: document.querySelector('#firstName').value,

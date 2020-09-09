@@ -371,4 +371,28 @@ th {
     width: 20%;
   }
 }
+
+/* Retour a l'acceuil */
+.retour_acc {
+  width: 30%;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  background-color: #2ecc71;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #FFF;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.retour_acc:hover {
+  background-color: #27ae60;
+}
+
+@media (min-width: 700px) {
+  .retour_acc {
+    width: 20%;
+  }
+}
 /*# sourceMappingURL=style.css.map */
