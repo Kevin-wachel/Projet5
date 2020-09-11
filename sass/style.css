@@ -259,6 +259,19 @@ th {
   }
 }
 
+.resume {
+  margin: 150px 75px 160px 75px;
+  text-align: center;
+  border: 2px solid black;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 700px) {
+  .resume {
+    margin: 150px 150px 160px 150px;
+  }
+}
+
 /* Bouton page d'accueil */
 .btn_lien {
   width: 50%;
